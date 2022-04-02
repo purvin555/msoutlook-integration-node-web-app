@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css" />
+  <link rel="stylesheet"
+    href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css" />
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css" />
+  {{#if email}}
+  <script src='/javascripts/socket.io.js'></script>
+  <script src='/javascripts/event.listener.js'></script>
+  {{/if}}
+</head>
+
+<body>
+  <div id="main-content" class="ms-Grid">
+
+    <div class="ms-Grid-row">
+      <div class="ms-Grid-col ms-sm6 ms-md11 ms-lg2">
+        <div id="title-banner" class="ms-font-su">Node App - Outlook Integration</div>
+      </div>
+      {{#if email}}
+      <div class="ms-Grid-col ms-sm6 ms-md1 ms-lg1">
+        <div id="title-banner" class="ms-font-su">
+          <a class="ms-Button ms-Button--small" href="/authorize/signout">
+            <span class="ms-Button-label">Sign Out</span>
+          </a>
+        </div>
+      </div>
+      {{#unless webhookid}}
+      <div class="ms-Grid-col ms-sm6 ms-md1 ms-lg1">
+        <div id="title-banner" class="ms-font-su">
+          <a class="ms-Button ms-Button--small" href="/webhook/attach">
+            <span class="ms-Button-label">Web hook</span>
+          </a>
+        </div>
+      </div>
+      {{/unless }}
+      {{/if}}
+    </div>
+    {{#if email}}
+    <div class="ms-Grid-row">
+      <div id="user-email" class="ms-font-l">Signed in as: {{email}}</div>
+    </div>
+    {{/if}}
+    <div id="body-content" class="ms-Grid-row">
+      {{{body}}}
+    </div>
+  </div>
+</body>
+</html>

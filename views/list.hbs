@@ -1,0 +1,62 @@
+<script>
+  var listener = undefined;
+  $(document).ready(() => {
+
+    listener = new EventListener('{{email}}', function (data) {
+      var list = $('#messagelist');
+      if (!list)
+        return;
+      list.show();
+      var subject = data && data.subject ? data.subject : 'An item';
+      var change = data && data.change ? data.change : 'detected';
+      $("#events").append(`<li class="ms-ListItem">${subject} ${change}</li>`);
+    });
+    listener.connect();
+  });
+  $(window).on('beforeunload', function () {
+    if (listener)
+      listener.disconnect();
+  });
+</script>
+
+<div class="ms-Grid-row hideme" id="messagelist">
+  <div class="ms-MessageBanner autoheight textleft">
+    <div class="pad8">
+      <div class="ms-font-l ms-fontWeight-semibold">Remote Events</div>
+      <ul class="ms-List pad8" id="events">
+      </ul>
+    </div>
+    <div class="pad8">
+      <button onclick="location.reload();" class="ms-Button ms-Button--primary">
+        <span class="ms-Button-label">Press Refresh</span>
+      </button>
+    </div>
+    <button class="ms-MessageBanner-close" onclick="$('#messagelist').hide();">
+      <i class="ms-Icon ms-Icon--Clear"></i>
+    </button>
+  </div>
+</div>
+
+{{#if events}}
+<div id="table-row" class="ms-Grid-row">
+  <div class="ms-font-l ms-fontWeight-semibold">Calendar</div>
+  <div class="ms-Table">
+    <div class="ms-Table-row">
+      <div class="ms-Table-cell">Subject</div>
+      <div class="ms-Table-cell">Start</div>
+      <div class="ms-Table-cell">End</div>
+      <div class="ms-Table-cell">View</div>
+    </div>
+    {{#each events}}
+    <div class="ms-Table-row">
+      <div class="ms-Table-cell">{{this.Subject}}</div>
+      <div class="ms-Table-cell">{{formatDate this.Start.DateTime "long"}} ({{this.Start.TimeZone}})</div>
+      <div class="ms-Table-cell">{{formatDate this.End.DateTime "long"}} ({{this.End.TimeZone}})</div>
+      <div class="ms-Table-cell">
+        <a href="/item?id={{this.Id}}">View Item</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{/if}}

@@ -1,0 +1,13 @@
+{{#if message}}
+    <div class="ms-Grid-row">
+        <div class="ms-font-l">{{message}}</div>
+    </div>
+{{/if}}
+{{#if error}}
+    <div class="ms-Grid-row">
+        <div class="ms-font-l">{{error.status}}</div>
+    </div>
+    <div class="ms-Grid-row">
+        <pre>{{error.stack}}</pre>
+    </div>
+{{/if}}

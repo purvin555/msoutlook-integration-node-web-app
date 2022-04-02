@@ -1,0 +1,7 @@
+dist/
+node_modules/
+node_modules*
+TODO
+.idea
+src/config/local-config.json
+yarn-error.log

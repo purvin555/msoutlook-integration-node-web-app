@@ -1,0 +1,98 @@
+<div class="ms-Grid">
+    <form action="/updateitem" method="get">
+        <input name="id" type="hidden" value="{{event.Id}}" />
+
+        <div id="event-subject" class="ms-Grid-row">
+            <div class="ms-Grid-col ms-u-sm12">
+                <div class="ms-TextField">
+                    <label class="ms-Label">Subject</label>
+                    <input name="subject" class="ms-TextField-field" value="{{event.Subject}}" />
+                </div>
+            </div>
+        </div>
+
+        <div class="ms-Grid-row">
+            <div class="ms-Grid-col ms-u-sm12">
+                <div class="ms-TextField">
+                    <label class="ms-Label">Location</label>
+                    <input name="location" class="ms-TextField-field" value="{{event.Location.DisplayName}}" />
+                </div>
+            </div>
+        </div>
+
+        {{#if event.IsReminderOn}}
+        <div class="ms-Grid-row">
+            <div class="ms-Grid-col ms-u-sm12">
+                <div class="ms-TextField is-disabled">
+                    <label class="ms-Label">Reminder minutes before start</label>
+                    <input class="ms-TextField-field" value="{{event.ReminderMinutesBeforeStart}}" />
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        
+        {{#if event.Attendees2}}
+            {{#if event.Attendees2.required}}
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-u-sm12">
+                    <div class="ms-TextField is-disabled">
+                        <label class="ms-Label">Required Attendees</label>
+                        <input class="ms-TextField-field" value="{{event.Attendees2.required}}" />
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+
+            {{#if event.Attendees2.optional}}
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-u-sm12">
+                    <div class="ms-TextField is-disabled">
+                        <label class="ms-Label">Optional attendees</label>
+                        <input class="ms-TextField-field" value="{{event.Attendees2.optional}}" />
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if event.Attendees2.optional}}
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-u-sm12">
+                    <div class="ms-TextField is-disabled">
+                        <label class="ms-Label">Resources</label>
+                        <input class="ms-TextField-field" value="{{event.Attendees2..resources}}" />
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+        {{/if}}
+
+        <div class="ms-Grid-row">
+            <div class="ms-Grid-col ms-u-sm6">
+                <div class="ms-TextField is-disabled">
+                    <label class="ms-Label">Start</label>
+                    <input class="ms-TextField-field" value="{{formatDate  event.Start.DateTime 'long'}} {{event.Start.TimeZone}}" />
+                </div>
+            </div>
+            <div class="ms-Grid-col ms-u-sm6">
+                <div class="ms-TextField is-disabled">
+                    <label class="ms-Label">End</label>
+                    <input class="ms-TextField-field" value="{{formatDate  event.End.DateTime 'long'}} {{event.End.TimeZone}}" />
+                </div>
+            </div>
+        </div>
+
+        <div id="action-buttons" class="ms-Grid-row">
+            <div class="ms-Grid-col ms-u-sm6">
+                <input type="submit" class="ms-Button ms-Button--primary ms-Button-label" value="Update item" />
+            </div>
+            <div class="ms-Grid-col ms-u-sm6">
+                <a class="ms-Button ms-Button"
+                    href="/deleteitem?id={{event.Id}}"><span
+                        class="ms-Button-label">Delete item</span></a>
+            </div>
+        </div>
+    </form>
+
+</div>
