@@ -1,6 +1,6 @@
 ## I N T R O
 
-This sample code base covers a submission in response to test allocated by a company during a recruitment process. Submission was successful in a sense that it help land a full time gig with that company.
+This sample code base covers a submission in response to test allocated by a company. Submission was successful in a sense that it help land a full time gig with that company.
 
 ```
 T E S T----T E X T
