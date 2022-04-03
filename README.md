@@ -27,8 +27,15 @@ Quick video overview
 
 https://drive.google.com/file/d/19DDTRF27np6SJXHRgVbASzEGlip_N5zv/view?usp=sharing
 
+- Code bases consist Node JS APIs with routes serving html pages.
+- Server is intialized using express framework for Node.
+- Socket io server is initialized along with node express intializaton.
+- HTML is included in .hbs templates interpersed with handlebars expressions which gets resolved based on template parameters resolved during API calls. 
+- The APIs also include endpoints for webhooks. 
+- The server will also communicate with clients over sockets during webhook events using socket-io. 
+- The html pages served also include javascript that will create socket client connections with socket io server.
 
-Instructions to run code 
+## S E T U P 
 - Please check .env file in root and apply proper settings for APP_ID,APP_PASSWORD and NGROK_ADDRESS before you spin up server instance.
 - App_ID is id created to connect external app to outlook. https://drive.google.com/file/d/1JN2keX2K5zGEfIk178VOYVzHnbwHG1jj/view?usp=sharing
 - App_Password is password for that APP_ID.  
