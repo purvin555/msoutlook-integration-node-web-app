@@ -1,5 +1,9 @@
+## I N T R O
+
+This sample code base covers a submission in response to test allocated by a company during a recruitment process. Submission was successful in a sense that it help land a full time gig with that company.
+
 ```
-T E S T    
+T E S T----T E X T
 
 1. Go create an outlook account
 2. Add some stuff to the calendar
@@ -15,12 +19,12 @@ Test for backend with instructions:
 
 https://docs.microsoft.com/en-us/outlook/rest/node-tutorial
 
-
 ```
 
-## T E S T   R E S P O N S E
+## T E S T----R E S P O N S E
 
-Quick video overview: Video link - https://drive.google.com/file/d/19DDTRF27np6SJXHRgVbASzEGlip_N5zv/view?usp=sharing
+Quick video overview: Video link 
+https://drive.google.com/file/d/19DDTRF27np6SJXHRgVbASzEGlip_N5zv/view?usp=sharing
 
 Instructions to run code 
 - Please check .env file in root and apply proper settings for APP_ID,APP_PASSWORD and NGROK_ADDRESS before you spin up server instance.
@@ -35,7 +39,6 @@ Instructions to run code
 - When outlook reports change to node server it notifies clients using socket.io. The list will not update but you will see message(s) popup and then you will have to manually refresh. 
 - Please press Sign Out button to detach webhook and terminate session. This will avoid multiple messages for events when you sign back in.  
 
-
-## I S S U E S   P E N D I N G   R E S O L U T I O N
-- When you delete or add you calendar item it generates see extra messages for same event with update word in it. 
-- There is an issue about multiple webhooks getting attached.  If you have multiple signups (say from different browsers),  you will see duplicate  entries in message box when you add , update or delete entry in calendar using https://outlook.live.com/calendar/view .  Outlook api allows multiple webhooks subscription even when NotificationUrl setting is same during multiple requests for webhook subscription.  As a result it reports multiple times for same event.  An issue for which a resolution is pending.
+## I S S U E S----P E N D I N G----R E S O L U T I O N
+- Upon deletion or addition of calendar item it generates extra messages for same event with update word in it. 
+- An issue about multiple webhooks getting attached.  If you have multiple signups (say from different browsers),  you will see duplicate entries in message box when you add, update or delete an entry in calendar using https://outlook.live.com/calendar/view .  An issue for which a resolution is pending.
