@@ -23,8 +23,10 @@ https://docs.microsoft.com/en-us/outlook/rest/node-tutorial
 
 ## T E S T----R E S P O N S E
 
-Quick video overview: Video link 
+Quick video overview
+
 https://drive.google.com/file/d/19DDTRF27np6SJXHRgVbASzEGlip_N5zv/view?usp=sharing
+
 
 Instructions to run code 
 - Please check .env file in root and apply proper settings for APP_ID,APP_PASSWORD and NGROK_ADDRESS before you spin up server instance.
