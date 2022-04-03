@@ -1,5 +1,5 @@
 ```
-T E S T    G I V E N   B Y    A    C O M P A N Y
+T E S T    
 
 1. Go create an outlook account
 2. Add some stuff to the calendar
@@ -18,5 +18,24 @@ https://docs.microsoft.com/en-us/outlook/rest/node-tutorial
 
 ```
 
-## Successful Submission
+## T E S T   R E S P O N S E
 
+Quick video overview: Video link - https://drive.google.com/file/d/19DDTRF27np6SJXHRgVbASzEGlip_N5zv/view?usp=sharing
+
+Instructions to run code 
+- Please check .env file in root and apply proper settings for APP_ID,APP_PASSWORD and NGROK_ADDRESS before you spin up server instance.
+- App_ID is id created to connect external app to outlook. https://drive.google.com/file/d/1JN2keX2K5zGEfIk178VOYVzHnbwHG1jj/view?usp=sharing
+- App_Password is password for that APP_ID.  
+- NGROK_ADDRESS  is simply pasting an "HTTPS" link generated once once you bind your local port 4004 to a public address allocated by ngrok. (Download and install ngrok. ngrok http 4004)
+
+## N O T E S
+
+- The web hook subscription gets automatically called post successful signup. If it doesn't happen you will see Web Hook button on the list page. 
+- Web hook request will be sent only for one session.
+- When outlook reports change to node server it notifies clients using socket.io. The list will not update but you will see message(s) popup and then you will have to manually refresh. 
+- Please press Sign Out button to detach webhook and terminate session. This will avoid multiple messages for events when you sign back in.  
+
+
+## I S S U E S   P E N D I N G   R E S O L U T I O N
+- When you delete or add you calendar item it generates see extra messages for same event with update word in it. 
+- There is an issue about multiple webhooks getting attached.  If you have multiple signups (say from different browsers),  you will see duplicate  entries in message box when you add , update or delete entry in calendar using https://outlook.live.com/calendar/view .  Outlook api allows multiple webhooks subscription even when NotificationUrl setting is same during multiple requests for webhook subscription.  As a result it reports multiple times for same event.  An issue for which a resolution is pending.
